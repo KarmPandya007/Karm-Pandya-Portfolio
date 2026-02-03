@@ -67,7 +67,7 @@ const education = [
   },
   {
     school: "National High School Ahmedabad",
-    program: "Computer Engineering",
+    program: "Higher Secondary Education",
     dates: "June 2021 - March 2023",
   },
   {

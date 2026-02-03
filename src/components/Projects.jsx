@@ -11,7 +11,15 @@ const projects = [
       "A library-management frontend demonstrating CRUD operations and UI patterns.",
     type: "Deployed Project",
     image: bookhivephoto,
-    link: "https://bookhive-library-management-portal.vercel.app/",
+    link: "https://book-hive-frontend-library-manageme.vercel.app/",
+  },
+  {
+    title: "Scenic",
+    description:
+      "A creative media agency website built with React and Tailwind CSS.",
+    type: "Personal Project",
+    image: scenicphoto1,
+    link: "https://scenic-react-tailwind.vercel.app/",
   },
   {
     title: "Foodie's Hub",
@@ -28,14 +36,6 @@ const projects = [
     type: "Personal Project",
     image: mosointeriorphoto2,
     link: "https://github.com/KarmPandya007/Moso-Interior-React-Tailwind",
-  },
-  {
-    title: "Scenic",
-    description:
-      "A creative media agency website built with React and Tailwind CSS.",
-    type: "Personal Project",
-    image: scenicphoto1,
-    link: "https://github.com/KarmPandya007/Scenic-React-Tailwind",
   },
 ];
 
