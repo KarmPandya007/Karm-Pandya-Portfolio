@@ -8,7 +8,7 @@ const highlights = [
 ];
 
 const stats = [
-  { label: "Projects shipped", value: "12+" },
+  { label: "Projects shipped", value: "7+" },
   { label: "Core stacks", value: "MERN" },
   { label: "Availability", value: "Open" },
 ];
