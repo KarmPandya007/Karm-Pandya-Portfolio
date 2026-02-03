@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+:root {
+    --color-mycolor: rgb(222, 0, 70);
+    color-scheme: light;
+}
+
+body {
+    font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+    background-color: #f8fafc;
+    color: #0f172a;
+}
+
+* {
+    scroll-behavior: smooth;
+}
