@@ -16,7 +16,7 @@ const projects = [
   {
     title: "Scenic",
     description:
-      "A creative media agency website built with React and Tailwind CSS.",
+      "Premium React, Tailwind CSS 4, and Lucide agency site with elite glassmorphic aesthetics. Cinematic UX powered by GSAP and Framer Motion with interactive custom cursor effects.",
     type: "Personal Project",
     image: scenicphoto1,
     link: "https://scenic-react-tailwind.vercel.app/",
