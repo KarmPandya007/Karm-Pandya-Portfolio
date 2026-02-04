@@ -6,10 +6,12 @@ import Projects from './components/Projects'
 import Blogs from './components/Blogs'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import CustomCursor from './components/CustomCursor'
 
 function App() {
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
+    <div className="min-h-screen bg-slate-50 text-slate-900 selection:bg-blue-100 selection:text-blue-700">
+      <CustomCursor />
       <Navbar />
       <Intro />
       <About />

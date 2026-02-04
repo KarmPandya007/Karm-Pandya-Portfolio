@@ -1,4 +1,12 @@
-import React from "react";
+import React, { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import { motion } from "framer-motion";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const contact = {
   email: "karmpandya007@gmail.com",
@@ -7,7 +15,7 @@ const contact = {
   linkedin: "linkedin.com/in/karm-pandya-055ba9363",
 };
 
-const topSkills = ["Web Engineering", "Next.js", "Technical Project Leadership"];
+const topSkills = ["Web Engineering", "Next.js", "Technical Project Leadership", "Full-stack Arch", "Database Optimization"];
 
 const summary = [
   "Backend-focused full-stack developer with hands-on experience building reliable, scalable web applications.",
@@ -20,174 +28,181 @@ const experience = [
   {
     company: "TechStack India",
     role: "MERN Stack Developer",
-    dates: "September 2025 - Present (6 months)",
-    location: "Ahmedabad, Gujarat",
+    dates: "Sept 2025 - Present",
+    location: "Ahmedabad, India",
   },
   {
-    company: "Google Developers Group",
+    company: "GDG (Google Developers Group)",
     role: "Web Lead",
-    dates: "February 2024 - Present (2 years)",
-    location: "Ahmedabad, Gujarat",
+    dates: "Feb 2024 - Present",
+    location: "Ahmedabad, India",
     highlights: [
       "Led web initiatives, mentored peers, and delivered community-facing projects.",
       "Collaborated across Web Development and Artificial Intelligence programs.",
-      "Organized and supported multiple technical events and workshops.",
+      "Organized technical workshops for 500+ attendees.",
     ],
   },
   {
     company: "RAPYD",
     role: "Web Development Intern",
-    dates: "July 2025 - September 2025 (3 months)",
-    location: "Ahmedabad, Gujarat",
+    dates: "July 2025 - Sept 2025",
+    location: "Ahmedabad, India",
   },
   {
-    company: "Way To Code Technologies LLP",
+    company: "Way To Code Technologies",
     role: "React Developer",
-    dates: "January 2025 - June 2025 (6 months)",
-    location: "Ahmedabad, Gujarat",
+    dates: "Jan 2025 - June 2025",
+    location: "Ahmedabad, India",
     highlights: [
-      "Built real-world projects with React and Next.js using component-based architecture.",
-      "Focused on responsive design, Tailwind CSS, and Bootstrap for clean UI delivery.",
-      "Strengthened analytical problem-solving and full-stack fundamentals.",
+      "Built production-ready interfaces with React and Next.js.",
+      "Optimized frontend performance and Core Web Vitals.",
     ],
-  },
-  {
-    company: "ExploitXplorers",
-    role: "Technical Lead",
-    dates: "April 2024 - January 2025 (10 months)",
-    location: "Ahmedabad, Gujarat",
   },
 ];
 
 const education = [
   {
     school: "Silver Oak University",
-    program: "Bachelor of Technology - BTech, Computer Engineering",
-    dates: "August 2023 - 2027",
+    program: "B.Tech, Computer Engineering",
+    dates: "2023 - 2027",
   },
   {
-    school: "National High School Ahmedabad",
-    program: "Higher Secondary Education",
-    dates: "June 2021 - March 2023",
-  },
-  {
-    school: "Asia English School",
-    program: "Secondary Education",
-    dates: "June 2010 - April 2021",
+    school: "National High School",
+    program: "Higher Secondary (HSC)",
+    dates: "2021 - 2023",
   },
 ];
 
 const About = () => {
+  const containerRef = useRef();
+  const leftColRef = useRef();
+  const rightColRef = useRef();
+
+  useGSAP(() => {
+    const leftItems = leftColRef.current.children;
+    const rightItems = rightColRef.current.children;
+
+    gsap.from(leftItems, {
+      x: -30,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.15,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: leftColRef.current,
+        start: "top 85%",
+      }
+    });
+
+    gsap.from(rightItems, {
+      x: 30,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: rightColRef.current,
+        start: "top 85%",
+      }
+    });
+
+  }, { scope: containerRef });
+
   return (
-    <section id="about" className="bg-white py-16 sm:py-20">
-      <div className="mx-auto w-full max-w-6xl px-6">
-        <div className="grid gap-10 lg:grid-cols-[1.1fr_1.5fr]">
-          <div className="space-y-6">
+    <section id="about" ref={containerRef} className="bg-white py-16 sm:py-20 lg:py-32 overflow-hidden relative">
+      <div className="mx-auto w-full max-w-6xl px-6 relative z-10">
+        <div className="grid gap-16 lg:grid-cols-[0.8fr_1.2fr]">
+          <div ref={leftColRef} className="space-y-10">
             <div>
-              <p className="text-sm font-medium uppercase tracking-[0.2em] text-slate-500">
-                About
-              </p>
-              <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-                Karm Pandya
+              <motion.span
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                className="text-xs font-black uppercase tracking-[0.4em] text-blue-600"
+              >
+                Information
+              </motion.span>
+              <h2 className="mt-4 text-5xl font-black tracking-tight text-slate-900 sm:text-7xl">
+                The <span className="text-blue-600">Profile</span>.
               </h2>
-              <p className="mt-2 text-base text-slate-600 sm:text-lg">
-                Backend-Focused Full-Stack Developer | Node.js, Express, Python,
-                FastAPI | MongoDB & SQL | React, Next.js | Web Lead @ GDG | AI
-                Enthusiast
+              <p className="mt-6 text-lg text-slate-500 font-medium leading-relaxed">
+                A dedicated engineer focused on bridging the gap between complex
+                backend systems and intuitive user interfaces.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-base font-semibold text-slate-900">
-                Contact
+            <div className="rounded-[2.5rem] border border-slate-100 bg-slate-50 p-10 shadow-2xl shadow-slate-200/50">
+              <h3 className="text-xl font-black text-slate-900 mb-8 border-b border-slate-200 pb-4">
+                Connect Directly
               </h3>
-              <dl className="mt-4 space-y-3 text-sm text-slate-600">
-                <div className="flex justify-between gap-4">
-                  <dt className="text-slate-500">Email</dt>
-                  <dd className="text-right font-medium text-slate-700">
-                    {contact.email}
-                  </dd>
-                </div>
-                <div className="flex justify-between gap-4">
-                  <dt className="text-slate-500">Phone</dt>
-                  <dd className="text-right font-medium text-slate-700">
-                    {contact.phone}
-                  </dd>
-                </div>
-                <div className="flex justify-between gap-4">
-                  <dt className="text-slate-500">Location</dt>
-                  <dd className="text-right font-medium text-slate-700">
-                    {contact.location}
-                  </dd>
-                </div>
-                <div className="flex justify-between gap-4">
-                  <dt className="text-slate-500">LinkedIn</dt>
-                  <dd className="text-right font-medium text-slate-700">
-                    {contact.linkedin}
-                  </dd>
-                </div>
+              <dl className="space-y-6">
+                {[
+                  { label: "Email", value: contact.email, icon: "fa-envelope" },
+                  { label: "Phone", value: contact.phone, icon: "fa-phone" },
+                  { label: "Location", value: contact.location, icon: "fa-location-dot" },
+                ].map((item) => (
+                  <div key={item.label} className="group">
+                    <dt className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">{item.label}</dt>
+                    <dd className="flex items-center gap-3 text-slate-900 font-bold group-hover:text-blue-600 transition-colors">
+                      <i className={`fa-solid ${item.icon} text-slate-300 group-hover:text-blue-500 transition-colors`}></i>
+                      {item.value}
+                    </dd>
+                  </div>
+                ))}
               </dl>
             </div>
 
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="text-base font-semibold text-slate-900">Top skills</h3>
-              <div className="mt-4 flex flex-wrap gap-2">
+            <div className="rounded-[2.5rem] border border-slate-100 bg-white p-10 shadow-2xl shadow-slate-200/50">
+              <h3 className="text-xl font-black text-slate-900 mb-8 border-b border-slate-200 pb-4">Core Focus</h3>
+              <div className="flex flex-wrap gap-3">
                 {topSkills.map((skill) => (
-                  <span
+                  <motion.span
                     key={skill}
-                    className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-600"
+                    whileHover={{ scale: 1.05, backgroundColor: "#eff6ff", color: "#2563eb" }}
+                    className="rounded-xl border border-slate-100 bg-white px-5 py-3 text-xs font-black text-slate-600 shadow-sm transition-all"
                   >
                     {skill}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
             </div>
           </div>
 
-          <div className="space-y-8">
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="text-base font-semibold text-slate-900">Summary</h3>
-              <ul className="mt-4 space-y-3 text-sm text-slate-600">
+          <div ref={rightColRef} className="space-y-12">
+            <div className="rounded-[2.5rem] bg-slate-900 p-10 sm:p-12 shadow-3xl relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600 rounded-full blur-[80px] opacity-20 group-hover:opacity-40 transition-opacity"></div>
+              <h3 className="text-2xl font-black text-white mb-8 flex items-center gap-4">
+                <span className="w-8 h-[1px] bg-blue-500"></span>
+                Professional Summary
+              </h3>
+              <ul className="space-y-6 text-slate-300">
                 {summary.map((item) => (
-                  <li key={item} className="flex items-start gap-2">
-                    <span
-                      aria-hidden="true"
-                      className="mt-1 inline-flex h-2 w-2 rounded-full bg-slate-400"
-                    ></span>
-                    <span>{item}</span>
+                  <li key={item} className="flex items-start gap-4">
+                    <i className="fa-solid fa-code text-blue-500 mt-1"></i>
+                    <span className="text-base font-medium leading-relaxed tracking-tight">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="text-base font-semibold text-slate-900">
-                Experience
-              </h3>
-              <div className="mt-4 space-y-5">
+            <div>
+              <h3 className="text-3xl font-black text-slate-900 mb-10 pl-4 border-l-4 border-blue-600">Experience</h3>
+              <div className="space-y-8">
                 {experience.map((role) => (
-                  <div key={`${role.company}-${role.role}`}>
-                    <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+                  <div key={`${role.company}-${role.role}`} className="group relative bg-white rounded-3xl p-8 border border-slate-50 shadow-xl shadow-slate-100/50 hover:border-blue-100 transition-all">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
                       <div>
-                        <p className="text-sm font-semibold text-slate-900">
-                          {role.role}
-                        </p>
-                        <p className="text-sm text-slate-600">{role.company}</p>
+                        <h4 className="text-xl font-black text-slate-900">{role.role}</h4>
+                        <p className="text-blue-600 font-black text-sm uppercase tracking-widest">{role.company}</p>
                       </div>
-                      <div className="text-xs text-slate-500 sm:text-right">
-                        <p>{role.dates}</p>
-                        <p>{role.location}</p>
+                      <div className="text-xs font-black text-slate-400 bg-slate-50 px-4 py-2 rounded-full whitespace-nowrap">
+                        {role.dates}
                       </div>
                     </div>
                     {role.highlights && (
-                      <ul className="mt-3 space-y-2 text-sm text-slate-600">
-                        {role.highlights.map((highlight) => (
-                          <li key={highlight} className="flex items-start gap-2">
-                            <span
-                              aria-hidden="true"
-                              className="mt-1 inline-flex h-2 w-2 rounded-full bg-slate-300"
-                            ></span>
-                            <span>{highlight}</span>
+                      <ul className="space-y-3">
+                        {role.highlights.map((h) => (
+                          <li key={h} className="text-sm text-slate-500 font-medium flex gap-3">
+                            <span className="text-blue-400">â€¢</span> {h}
                           </li>
                         ))}
                       </ul>
@@ -197,14 +212,16 @@ const About = () => {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h3 className="text-base font-semibold text-slate-900">Education</h3>
-              <div className="mt-4 space-y-4 text-sm text-slate-600">
+            <div>
+              <h3 className="text-3xl font-black text-slate-900 mb-10 pl-4 border-l-4 border-slate-200">Education</h3>
+              <div className="grid gap-6 sm:grid-cols-2">
                 {education.map((item) => (
-                  <div key={item.school}>
-                    <p className="font-semibold text-slate-900">{item.school}</p>
-                    <p>{item.program}</p>
-                    <p className="text-xs text-slate-500">{item.dates}</p>
+                  <div key={item.school} className="bg-slate-50 rounded-[2rem] p-8 border border-slate-100 hover:bg-white hover:shadow-xl transition-all">
+                    <h4 className="text-lg font-black text-slate-900 mb-2">{item.school}</h4>
+                    <p className="text-sm text-slate-600 font-bold mb-4">{item.program}</p>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-blue-500 bg-blue-50 px-3 py-1 rounded-full">
+                      {item.dates}
+                    </span>
                   </div>
                 ))}
               </div>
