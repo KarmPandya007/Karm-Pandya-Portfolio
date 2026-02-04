@@ -4,13 +4,22 @@ import { loadSlim } from "@tsparticles/slim";
 
 const ParticlesBackground = () => {
     const [init, setInit] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+
         initParticlesEngine(async (engine) => {
             await loadSlim(engine);
         }).then(() => {
             setInit(true);
         });
+
+        return () => window.removeEventListener("resize", checkMobile);
     }, []);
 
     const options = useMemo(
@@ -20,24 +29,17 @@ const ParticlesBackground = () => {
                     value: "transparent",
                 },
             },
-            fpsLimit: 120,
+            fpsLimit: 60,
             interactivity: {
                 events: {
-                    onClick: {
-                        enable: true,
-                        mode: "push",
-                    },
                     onHover: {
-                        enable: true,
+                        enable: !isMobile,
                         mode: "repulse",
                     },
                 },
                 modes: {
-                    push: {
-                        quantity: 4,
-                    },
                     repulse: {
-                        distance: 200,
+                        distance: 100,
                         duration: 0.4,
                     },
                 },
@@ -48,9 +50,9 @@ const ParticlesBackground = () => {
                 },
                 links: {
                     color: "#cbd5e1",
-                    distance: 150,
+                    distance: 120,
                     enable: true,
-                    opacity: 0.3,
+                    opacity: 0.2,
                     width: 1,
                 },
                 move: {
@@ -60,28 +62,29 @@ const ParticlesBackground = () => {
                         default: "bounce",
                     },
                     random: false,
-                    speed: 1,
+                    speed: 0.8,
                     straight: false,
                 },
                 number: {
                     density: {
                         enable: true,
+                        area: 800,
                     },
-                    value: 80,
+                    value: isMobile ? 30 : 60,
                 },
                 opacity: {
-                    value: 0.3,
+                    value: 0.2,
                 },
                 shape: {
                     type: "circle",
                 },
                 size: {
-                    value: { min: 1, max: 3 },
+                    value: { min: 1, max: 2 },
                 },
             },
-            detectRetina: true,
+            detectRetina: false,
         }),
-        []
+        [isMobile]
     );
 
     if (init) {

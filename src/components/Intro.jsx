@@ -1,9 +1,8 @@
 import React, { useRef } from "react";
-import cv from "../assets/Karm Pandya Resume.pdf";
+import cv from "../assets/Karm Pandya Resume .docx";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { Animate } from "react-move";
 import ParticlesBackground from "./ParticlesBackground";
 
 const highlights = [
@@ -138,16 +137,14 @@ const Intro = () => {
             <div className="absolute inset-0 rounded-[3rem] border border-blue-100/50 -z-10 bg-gradient-to-br from-blue-50/50 to-transparent"></div>
 
             <div className="flex items-center justify-between">
-              <Animate
-                start={{ opacity: 0, x: -20 }}
-                enter={{ opacity: [1], x: [0], timing: { duration: 1000, delay: 1000 } }}
+              <motion.h2
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1, delay: 1 }}
+                className="text-2xl font-black text-slate-900 italic tracking-tighter"
               >
-                {(state) => (
-                  <h2 style={{ opacity: state.opacity, transform: `translateX(${state.x}px)` }} className="text-2xl font-black text-slate-900 italic tracking-tighter">
-                    Snapshot
-                  </h2>
-                )}
-              </Animate>
+                Snapshot
+              </motion.h2>
               <div className="flex gap-1.5">
                 {[1, 2, 3].map(i => <div key={i} className="w-1.5 h-1.5 rounded-full bg-slate-200"></div>)}
               </div>
