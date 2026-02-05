@@ -27,9 +27,14 @@ const summary = [
 const experience = [
   {
     company: "TechStack India",
-    role: "MERN Stack Developer",
+    role: "MERN Stack Developer (Fulltime)",
     dates: "Sept 2025 - Present",
     location: "Ahmedabad, India",
+    highlights: [
+      "Working on building and scaling production-grade systems from frontend to backend.",
+      "Hands-on with: Next.js, React.js, Node.js, Express.js, MongoDB, shadcn/ui, and multiple UI animation libraries.",
+      "Learning real-world system design, performance optimization, and how production apps actually behave at scale."
+    ],
   },
   {
     company: "GDG (Google Developers Group)",
@@ -44,13 +49,18 @@ const experience = [
   },
   {
     company: "RAPYD",
-    role: "Web Development Intern",
+    role: "Web Development (Intern)",
     dates: "July 2025 - Sept 2025",
     location: "Ahmedabad, India",
+    highlights: [
+      "Developed and maintained responsive web applications using React.js and Next.js.",
+      "Improved application performance and user experience through UI/UX enhancements.",
+      "Gained exposure to modern development practices and collaborative workflows.",
+    ],
   },
   {
     company: "Way To Code Technologies",
-    role: "React Developer",
+    role: "React Developer (Trainee)",
     dates: "Jan 2025 - June 2025",
     location: "Ahmedabad, India",
     highlights: [

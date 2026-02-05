@@ -3,13 +3,14 @@ import foodieshubphoto1 from "../assets/ProjectPhotos/foodieshubphoto1.png";
 import mosointeriorphoto2 from "../assets/ProjectPhotos/mosointeriorphoto2.png";
 import scenicphoto1 from "../assets/ProjectPhotos/scenicphoto1.png";
 import bookhivephoto from "../assets/ProjectPhotos/BookHive Photo .png";
+import crudapisphoto from "../assets/ProjectPhotos/crudapisphoto.png";
 import { motion } from "framer-motion";
 
 const projects = [
   {
     title: "Book Hive",
     description:
-      "A library-management frontend demonstrating CRUD operations and UI patterns.",
+      "A library-management system built using Next.js, ShadCN, Express and MongoDB demonstrating CRUD operation with Authentication and UI patterns.",
     type: "Library",
     image: bookhivephoto,
     link: "https://book-hive-frontend-library-manageme.vercel.app/",
@@ -21,6 +22,14 @@ const projects = [
     type: "Creative Agency",
     image: scenicphoto1,
     link: "https://scenic-react-tailwind.vercel.app/",
+  },
+  {
+    title: "CRUD APIs",
+    description:
+      "Production-style CRUD REST API using Node.js and Express.js, focusing on scalable architecture, clean routing, middleware patterns, and backend best practices.",
+    type: "Crud APIs with Authentication and Rate limiting",
+    image: crudapisphoto,
+    link: "https://github.com/KarmPandya007/Express-crud-apis",
   },
   {
     title: "Foodie's Hub",
