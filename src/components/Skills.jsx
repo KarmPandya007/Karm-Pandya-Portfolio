@@ -27,7 +27,8 @@ const skills = [
   { name: "Express", logo: expresslogo },
   { name: "MongoDB", logo: mongodblogo },
   { name: "TypeScript", logo: typescriptlogo },
-
+  { name: "Git", logo: gitlogo },
+  { name: "Github", logo: githublogo },
   { name: "Postman", logo: postmanlogo },
 ];
 
