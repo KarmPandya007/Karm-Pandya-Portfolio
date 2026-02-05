@@ -12,6 +12,8 @@ import mongodblogo from "../assets/SkillsPhotos/mongodb-original.svg";
 import typescriptlogo from "../assets/SkillsPhotos/typescript-original.svg";
 import nextjslogo from "../assets/SkillsPhotos/nextjs-original.svg";
 import postmanlogo from "../assets/SkillsPhotos/postman-original.png";
+import githublogo from "../assets/SkillsPhotos/githublogo.svg";
+import gitlogo from "../assets/SkillsPhotos/gitlogo.png";
 
 const skills = [
   { name: "HTML", logo: htmllogo },
@@ -25,6 +27,7 @@ const skills = [
   { name: "Express", logo: expresslogo },
   { name: "MongoDB", logo: mongodblogo },
   { name: "TypeScript", logo: typescriptlogo },
+
   { name: "Postman", logo: postmanlogo },
 ];
 
@@ -59,7 +62,7 @@ const SkillCard = ({ skill }) => {
       className="group flex items-center gap-4 rounded-2xl border border-slate-100 bg-white p-4 shadow-sm transition-all hover:border-blue-200 hover:shadow-xl hover:shadow-blue-500/5 cursor-default"
     >
       <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-50 transition-colors group-hover:bg-blue-600/10">
-        <img src={skill.logo} alt={skill.name} className="h-7 w-7 grayscale group-hover:grayscale-0 transition-all duration-300" />
+        <img src={skill.logo} alt={skill.name} className="h-7 w-7 transition-all duration-300" />
       </div>
       <span className="text-sm font-bold text-slate-700 group-hover:text-slate-900 transition-colors">
         {skill.name}
