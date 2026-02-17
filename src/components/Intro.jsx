@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import cv from "../assets/Karm Pandya Resume .docx";
+import cv from "../assets/Karm Pandya Resume.docx";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -12,7 +12,7 @@ const highlights = [
 ];
 
 const stats = [
-  { label: "Projects shipped", value: "7+" },
+  { label: "Projects shipped", value: "5+" },
   { label: "Core stacks", value: "MERN" },
   { label: "Availability", value: "Open" },
 ];
