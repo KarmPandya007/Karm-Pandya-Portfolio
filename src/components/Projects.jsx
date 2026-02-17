@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 const projects = [
   {
     title: "Book Hive",
+    status : "Deployed",
     description:
       "A library-management system built using Next.js, ShadCN, Express and MongoDB demonstrating CRUD operation with Authentication and UI patterns.",
     type: "Library",
@@ -17,6 +18,7 @@ const projects = [
   },
   {
     title: "Scenic",
+    status : "Deployed",
     description:
       "Premium React, Tailwind CSS 4, and Lucide agency site with elite glassmorphic aesthetics. Cinematic UX powered by GSAP and Framer Motion.",
     type: "Creative Agency",
@@ -25,6 +27,7 @@ const projects = [
   },
   {
     title: "CRUD APIs",
+    status : "Deployed",
     description:
       "Production-style CRUD REST API using Node.js and Express.js, focusing on scalable architecture, clean routing, middleware patterns, and backend best practices.",
     type: "Crud APIs with Authentication and Rate limiting",
@@ -33,6 +36,7 @@ const projects = [
   },
   {
     title: "Foodie's Hub",
+    status : "In progress",
     description:
       "A React & Tailwind web app for exploring and cooking global recipes.",
     type: "Web App",
@@ -41,6 +45,7 @@ const projects = [
   },
   {
     title: "Moso Interior",
+    status : "In progress",
     description:
       "A modern React & Tailwind website showcasing home decor and furniture.",
     type: "E-commerce",
@@ -128,7 +133,7 @@ const Projects = () => {
                 <div className="flex items-center gap-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
                   <span className="text-xs font-black uppercase tracking-widest text-slate-400">
-                    {project.type}
+                    {project.type} ({project.status})
                   </span>
                 </div>
                 <div>
