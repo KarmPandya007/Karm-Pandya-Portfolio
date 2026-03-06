@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import cv from "../assets/Karm Pandya Resume.docx";
+import cv from "../assets/Karm_Pandya_FullStack_Resume.docx";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
